@@ -1,0 +1,50 @@
+name:                repa-experiments
+version:             0.1.0.0
+github:              "Abhiroop/repa-experiments"
+license:             BSD3
+author:              "Abhiroop Sarkar"
+maintainer:          "asiamgenius@gmail.com"
+copyright:           "Copyright (c) 2017-2018 Abhiroop Sarkar"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Data Structures
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on Github at <https://github.com/Abhiroop/repa-experiments#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+
+library:
+  source-dirs: src
+
+executables:
+  repa-experiments-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -O2
+    dependencies:
+    - repa-experiments
+    - repa
+
+tests:
+  repa-experiments-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - repa-experiments
