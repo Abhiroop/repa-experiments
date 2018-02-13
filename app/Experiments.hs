@@ -17,3 +17,12 @@ shortestPath g0 = runIdentity $ go g0 0
               go g' (k + 1)
           where
             sp (Z:.i:.j) = min (g ! (Z:.i:.j)) (g ! (Z:.i:.k) + g ! (Z:.k:.j))
+
+maxDistance :: Weight -> Weight -> Weight
+maxDistance x y
+  | x == maxBound = y
+  | y == maxBound = x
+  | otherwise     = max x y
+
+maxDistances :: Graph U -> Array U DIM1 Weight
+maxDistances = foldS maxDistance maxBound
