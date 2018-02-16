@@ -34,9 +34,12 @@ executables:
     - -rtsopts
     - -with-rtsopts=-N
     - -O2
+    - -fllvm
     dependencies:
     - repa-experiments
     - repa
+    - accelerate
+    - accelerate-llvm-native
 
 tests:
   repa-experiments-test:
